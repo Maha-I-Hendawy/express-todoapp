@@ -153,45 +153,6 @@ app.get('/delete/:id', (req, res) => {
 })
 
 
-app.get('/apis', (req, res) => {
-
-	res.json({name: "Kiki"});
-})
-
-app.post('/apis', (req, res) => {
-
-	todo_id = req.json.id;
-	todo = req.json.todo;
-
-
-});
-
-app.get('/apis/:id', (req, res) => {
-
-	let id = req.params.id;
-	res.send(id)
-
-})
-
-app.put('/apis/:id', (req, res) => {
-
-	let id = req.params.id;
-
-	todo.todo = req.json.todo;
-
-	
-
-
-});
-
-app.delete('/apis/id', (req, res) => {
-
-	let id = req.params.id;
-
-
-})
-
-
 
 
 
