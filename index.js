@@ -29,10 +29,12 @@ app.get('/', (req, res, next) =>{
 		else {
 
 			console.log(results);
+			
+			res.render('home', {data: results});
 		}
 	})
 
-	res.render('home');
+	
 
 
 });
@@ -61,6 +63,30 @@ app.post('/', (req, res) => {
 });
 
 
+app.get('/gettodo/:id', (req, res) => {
+
+	let id = req.params.id;
+
+	let query = "SELECT todo FROM todo WHERE todo_id =?"
+
+	connection.query(query, [id], (err, results, fields) => {
+
+		if (err){
+
+			console.log(err);
+		}
+		else {
+
+			console.log(results);
+			res.render("gettodo", {data: results})
+		}
+	})
+
+
+
+})
+
+
 app.get('/update/:id', (req, res) => {
 
 	let id = req.params.id;
@@ -76,10 +102,11 @@ app.get('/update/:id', (req, res) => {
 		else {
 
 			console.log(results);
+			res.render("update", {data: results})
 		}
 	})
 
-	res.render("update", {id: id})
+	
 });
 
 app.post('/update/:id', (req, res) => {

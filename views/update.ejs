@@ -8,10 +8,19 @@
 <body>
 	<div>
 		<h1>Update Todo</h1>
-		<form action="" method="post">
-			<input type="text" name="todo">
+
+		<% data.forEach( entry => {%>
+
+		   <form action="" method="post">
+			<input type="text" name="todo" value="<%= entry.todo %>">
 			<input type="submit" value="Update">
 		</form>
+
+		    
+
+		<% }) %>
+		
+		
 	</div>
 
 </body>

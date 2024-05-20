@@ -13,6 +13,17 @@
 			<input type="submit" value="Add">
 		</form>
 	</div>
+	<ul>
+		<% data.forEach( entry => {%>
+
+		   <li><a href="/gettodo/<%= entry.todo_id %>"><%= entry.todo %></a></li>
+		    <a href="/update/<%= entry.todo_id %>">Update</a>
+		   <a href="/delete/<%= entry.todo_id %>">Delete</a>
+
+
+		<% }) %>
+		
+	</ul>
 
 </body>
 </html>
