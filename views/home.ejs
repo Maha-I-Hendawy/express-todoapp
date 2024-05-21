@@ -3,27 +3,50 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<title></title>
 </head>
 <body>
-	<div>
-		<h1>Home Page</h1>
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h1>Todolist App</h1>
+		</div>
 		<form action="" method="post">
-			<input type="text" name="todo">
-			<input type="submit" value="Add">
-		</form>
+		  <div class="form-group">
+		    <input type="text" class="form-control" id="text" name="todo">
+		  </div>
+		  <div class="checkbox">
+		    <label><input type="checkbox"> Completed</label>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Add</button>
+         </form>
+         <br>
+         <br>
+         <br>
+         <% data.forEach( entry => {%>
+		<div style="width: 100%; height: 40px; margin: 10px; padding: 10px; box-sizing: border-box; border: 2px solid black; border-radius: 4px;">
+			
+			    <a href="#"><%= entry.todo %></a>
+
+			    <a href="/delete/<%= entry.todo_id %>" style="float: right; margin-left: 20px;">
+		          <span class="glyphicon glyphicon-trash"></span>
+		       </a>
+
+			    <a href="/update/<%= entry.todo_id %>" style="float: right;">
+		          <span class="glyphicon glyphicon-edit"></span>
+		        </a>
+					  
+	   </div>
+	   <% }) %>
 	</div>
-	<ul>
-		<% data.forEach( entry => {%>
-
-		   <li><a href="/gettodo/<%= entry.todo_id %>"><%= entry.todo %></a></li>
-		    <a href="/update/<%= entry.todo_id %>">Update</a>
-		   <a href="/delete/<%= entry.todo_id %>">Delete</a>
-
-
-		<% }) %>
-		
-	</ul>
+	
 
 </body>
 </html>
